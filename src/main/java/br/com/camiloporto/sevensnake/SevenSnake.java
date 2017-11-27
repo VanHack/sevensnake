@@ -92,8 +92,12 @@ public class SevenSnake {
     public boolean isCompatible(SevenSnake snake) {
         Set<Integer> adjNodes = this.adjacencyNodes();
         Set<Graph.Node> snakeNodes = this.getSequence();
+        Set<Integer> otherSnakeNodeIndexes = new HashSet<Integer>();
+        for(Graph.Node n : snake.getSequence()) {
+            otherSnakeNodeIndexes.add(n.index);
+        }
 
-        adjNodes.retainAll(snake.getSequence());
+        adjNodes.retainAll(otherSnakeNodeIndexes);
         snakeNodes.retainAll(snake.getSequence());
 
         return adjNodes.isEmpty() && snakeNodes.isEmpty();

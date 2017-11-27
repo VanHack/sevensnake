@@ -21,25 +21,23 @@ public class SevenSnakeTest {
         };
 
         Graph graph = new Graph(grid);
-        SevenSnake s1 = new SevenSnake();
-        s1.add(graph.nodes[0]);
-        s1.add(graph.nodes[1]);
-        s1.add(graph.nodes[2]);
-        s1.add(graph.nodes[3]);
-        s1.add(graph.nodes[4]);
-        s1.add(graph.nodes[9]);
-        s1.add(graph.nodes[14]);
+        SevenSnake s1 = createSnake(graph, 0, 1, 2, 3, 4, 9, 14);
 
-        SevenSnake s2 = new SevenSnake();
-        s2.add(graph.nodes[10]);
-        s2.add(graph.nodes[15]);
-        s2.add(graph.nodes[20]);
-        s2.add(graph.nodes[21]);
-        s2.add(graph.nodes[22]);
-        s2.add(graph.nodes[23]);
-        s2.add(graph.nodes[24]);
-
+        SevenSnake s2 = createSnake(graph, 10, 15, 20, 21, 22, 23, 24);
 
         Assert.assertTrue(s1.isCompatible(s2));
+
+        s1 = createSnake(graph, 24, 23, 22, 17, 12, 13, 14);
+        s2 = createSnake(graph, 7, 6, 11, 10, 15, 20, 21);
+
+        Assert.assertFalse(s1.isCompatible(s2));
+    }
+
+    private SevenSnake createSnake(Graph graph, int... nodes) {
+        SevenSnake s = new SevenSnake();
+        for(int i : nodes) {
+            s.add(graph.nodes[i]);
+        }
+        return s;
     }
 }
