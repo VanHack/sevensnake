@@ -11,7 +11,7 @@ The program will output a pair of 7Snakes in the following format:
 * [\<Snake1\>, \<Snake2\>], where:
 * \<Snake\> = a sequence of 7 \<GridNode\>, where:
 * \<GridNode\> = (\<GridNodeIndex\>{GridNodeValue}), where:
-* \<GridNodeIndex\> = An index o the Input Grid's cell, between 0 (inclusive) and the number of elements of the input grid. 
+* \<GridNodeIndex\> = An index of the Input Grid's cell, between 0 and the number of elements of the input grid. 
 
 For example:
 Given the input grid:
