@@ -6,11 +6,13 @@ problem description: https://docs.google.com/document/d/1pgc1EiJFOAxaEwfFI0PyUkb
 3. java -cp target/classes/ br.com.camiloporto.App <filename.csv>
 
 ## About the output:
-* The program will output a pair of 7Snakes in the following format:
-[\<Snake1\>, \<Snake2\>], where:
-\<Snake\> = a sequence of 7 \<GridNode\>, where
-\<GridNode\> = (\<GridNodeIndex\>{GridNodeValue}), where
-\<GridNodeIndex\> = An index o the Input Grid's cell, between 0 (inclusive) and the number of elements of the input grid. 
+The program will output a pair of 7Snakes in the following format:
+
+* [\<Snake1\>, \<Snake2\>], where:
+* \<Snake\> = a sequence of 7 \<GridNode\>, where:
+* \<GridNode\> = (\<GridNodeIndex\>{GridNodeValue}), where:
+* \<GridNodeIndex\> = An index o the Input Grid's cell, between 0 (inclusive) and the number of elements of the input grid. 
+
 For example:
 Given the input grid:
 ```
@@ -25,7 +27,7 @@ Given the input grid:
 - element of value 7 has index 6
 - element of value 9 has index 8
 
-\<GridNodeValue\> = the cell value of a GridNode
+* \<GridNodeValue\> = the cell value of a GridNode
 
 ## Sample output:
 Given the following Grid:
