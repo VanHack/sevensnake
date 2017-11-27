@@ -23,14 +23,8 @@ public class SevenSnakeSearch {
         while(hasSnakeToSearch()) {
             Graph.Node startNode = randomNode();
             SevenSnake nextSnake = findOne(startNode);
-//            if(nextSnake.toString().startsWith("(0")) {
-//                System.out.println("found snake 0: " + nextSnake);
-//            }
             if(!snakesDiscovered.contains(nextSnake)) {
                 int sum = nextSnake.sum();
-                if(sum == 30) {
-                    System.out.println("found " + nextSnake);
-                }
                 if(searchMap.containsKey(sum)) {
                     SevenSnake validPair = getValidPairFor(nextSnake, searchMap.get(sum));
                     if(validPair != null) {
@@ -52,7 +46,6 @@ public class SevenSnakeSearch {
             }
             snakesDiscovered.add(nextSnake);
         }
-        System.out.println("total: " + snakesDiscovered.size());
         return null;
     }
 
