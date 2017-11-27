@@ -64,6 +64,61 @@ Given the problem description about the grid and adjacency rules of each cell, I
 * A 7Snake is a Path on the Graph with 7 nodes length;
 
 ### Solution Definition
-A solution for the problem is a pair of 7Snakes that:
+Given two snakes s1 and s2. They form a solution to the problem if:
 
-* .. to continue..
+* sum(s1) = sum(s2); where sum(s)
+* s1.nodes intersection with s2.nodes = empty
+* s1.adjacencyNodes intersection with s2.nodes = empty
+
+### Finding valid Pair of 7Snakes
+The reasoning for the proposed solution is as follows:
+1. Finding a 7Snake is like finding a 7-length-path in a graph
+2. We have to find two 7-length-paths in the graph that is also a *valid solution*.
+3. So, we keep searching the graph fot these paths until: a) find a valid solution or b) conclude that there is no valid solution in the graph.
+
+#### Finding a 7-Snake
+Given a Node n in the Graph g, we find a 7Snake using an algorithm technique composed of a Depth-First-Search like approach together with a backtracking technique. Below is the pseudo-code for the algorithm
+
+```
+Snake findSnake(Node startNode)
+    Snake s = emptySnake()
+    Stack stack = emptyStack()
+    stack.push(startNode)
+    while(stack is not empty && s.size() < 7)
+        Node n = stack.pop()
+        if(adding n to s will keep a valid snake)
+            s.add(n)                                     // add n to the snake and increments its size by 1
+            stack.pushAll(n.adjList)
+        else
+            // backtrack, try other node
+    return s
+```
+
+We start with an Empty Snake and, in each iteration inside the while loop, we try to increase the snake by one Node. If the current node addition lead the snake state in a *valid one*, we add the node to the snake. Otherwise, we backtrack and try other Node. 
+
+A Snake is a valid one if it:
+* has size = 1
+* do not have cycles
+* has no intersection between its head (most recently added node) and nodes belonging to the adjacency lists of the Nodes inside the snake.
+
+#### Finding Snakes in the Graph
+For searching the graph for a valid solution, we could:
+1. Enumerate all possible valid 7-snake starting from all nodes in the graph
+2. group snakes by their sum
+3. For each group, try to find a pair os snakes which composes a *valid solution*.
+
+Though, I chose a probabilistic approach for the search, as follow:
+1. choose a random node n from the graph
+2. find a random 7-snake starting with n as startNode
+3. if snake has already been discovered
+    3.1 increment repeated snake count
+    3.2 discard snake and goto #1.
+4. else
+    1. check if other snakes with the same sum has been found
+    2. for all snakes with the same sum, check if one of them compounds a valid solution with the recently found snake.
+    3. if found, return the pair.
+    4. add recently found snake to the group of snakes with the same sum.
+5. if you think you have found all snakes (too many repeated snakes are being found), stop the process. no valid pair found!
+
+
+
