@@ -110,9 +110,9 @@ For searching the graph for a valid solution, we could:
 Though, I chose a probabilistic approach for the search, as follow:
 1. choose a random node n from the graph
 2. find a random 7-snake starting with n as startNode
-3. if snake has already been discovered
+3. if the found snake has already been discovered earlier
     3.1 increment repeated snake count
-    3.2 discard snake and goto #1.
+    3.2 discard the found snake and goto #1.
 4. else
     1. check if other snakes with the same sum has been found
     2. for all snakes with the same sum, check if one of them compounds a valid solution with the recently found snake.
