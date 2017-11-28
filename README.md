@@ -59,8 +59,8 @@ Given the problem description about the grid and adjacency rules of each cell, I
     * given a grid of size NxN, the Grid Cell a\[i\]\[j\]  is mapped to a Graph Node of index (i * N) + j; where 0 \>= i,j \< N.
 * Each Node's adjacency list is created as follow:
     * Given a Node n and its equivalent GridCell a\[i\]\[j\], the Adjacency list of the node will be the Nodes equivalent to the GridCells b\[k\]\[l\] where 
-*** k = i+1, k=i-1; 0 >= k < N
-*** l = j+1, l=j-1; 0 >= l < N
+        * k = i+1, k=i-1; 0 >= k < N
+        * l = j+1, l=j-1; 0 >= l < N
 * A 7Snake is a Path on the Graph with 7 nodes length;
 
 ### Solution Definition
