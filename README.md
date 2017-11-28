@@ -66,7 +66,7 @@ Given the problem description about the grid and adjacency rules of each cell, I
 ### Solution Definition
 Given two snakes s1 and s2. They form a solution to the problem if:
 
-* sum(s1) = sum(s2); where sum(s)
+* sum(s1) = sum(s2); where sum(s) = sum of the snake's node values
 * s1.nodes intersection with s2.nodes = empty
 * s1.adjacencyNodes intersection with s2.nodes = empty
 
